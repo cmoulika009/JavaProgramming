@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+
+
+
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
+
+
+
+	<!-- This servlet mapping is used to call Controller which decides to which 
+		page we have to redirect -->
+	<!-- org.apache.struts.action.ActionServlet is Struts provided Controller -->
+	<!-- If ActionServlet is not found in specified location then init-param 
+		redirects to struts-config.xml -->
+	<servlet>
+		<servlet-name>StrutsActionServlet</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+
+
+	<!-- servlet mapping maps the respective servlet In general if we have multiple 
+		JSP's we used to maintain different url-pattern But here we can use *.do 
+		that accepts any action url. -->
+	<servlet-mapping>
+		<servlet-name>StrutsActionServlet</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+</web-app>

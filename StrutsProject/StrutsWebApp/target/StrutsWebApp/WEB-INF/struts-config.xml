@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<!-- Define mappings for login.jsp also Bean has more features than POJO 
+		class which just has getters and setters but bean class has additional functionality -->
+
+	<form-beans>
+		<form-bean name="myLoginForm" type="com.struts.form.LoginForm"></form-bean>
+	</form-beans>
+
+
+	<!-- map login.do to LoginAction.java -->
+	<!-- /Login url pattern request which is sent from front-end, it doesnot 
+		tells the exact jsp page but it tells there is request coming from the jsp 
+		page -->
+	<!-- When that request is sent from front-end which java class needs to 
+		be called defined in type property -->
+	<!-- Generally the data is sent from JSP page to Servlet via request object 
+		in doPost: HttpRequest req, we can retrieve the data in LoginAction from 
+		request object But in Struts it says not to use request object to retrieve 
+		data -->
+	<!-- name: whenever request goes from jsp to java file, LoginForm create 
+		form bean and is hooked up to LoginAction -->
+
+	<action-mappings>
+		<action path="/login" type="com.struts.action.LoginAction"
+			name="myLoginForm"></action>
+	</action-mappings>
+
+
+
+</struts-config>
