@@ -1,0 +1,5 @@
+com\courses\repo\CoursesRepo.class
+com\courses\service\CourseService.class
+com\courses\app\AppApplication.class
+com\courses\controller\CoursesController.class
+com\courses\model\Course.class
