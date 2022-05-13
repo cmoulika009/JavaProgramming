@@ -1,0 +1,23 @@
+const render = () => {
+  document.getElementById('mountNode').innerHTML = `
+    <div>
+      Hello HTML
+      <input />
+      <pre>${(new Date).toLocaleTimeString()}</pre>
+    </div>
+  `;
+
+  //Will be able to enter the text in input eventhough TimeStamp is being updated as below code renders only the related element
+  ReactDOM.render(
+    React.createElement(
+      'div',
+      null,
+      'Hello React',
+      React.createElement('input', null),
+      React.createElement('pre', null, (new Date).toLocaleTimeString())
+    ),
+    document.getElementById('mountNode2')
+  );
+};
+
+setInterval(render, 1000);
